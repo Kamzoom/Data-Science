@@ -9,9 +9,20 @@ from mlxtend.frequent_patterns import apriori, association_rules
 # Einlesen der Daten
 with open('store_data.csv', 'r') as file:
     records = [line.strip().split(',') for line in file]
+#längste Transaktion
+max_len = max(len(transaction) for transaction in records)
+print("Längste Transaktion:", max_len)
 
-# Entfernen von Transaktionen mit nur einem Element
-records = [transaction for transaction in records if len(transaction) > 1]
+
+# Entfernen von Transaktionen mit nur einem Element, prüfen aller Transaktionen gleicher Länge von 2-20
+#records = [transaction for transaction in records if len(transaction) > 1]
+#records=[transaction for transaction in records if len(transaction) == 2]
+#records=[transaction for transaction in records if len(transaction) == 3]
+#records=[transaction for transaction in records if len(transaction) == 4]
+#records=[transaction for transaction in records if len(transaction) == 5]
+#records=[transaction for transaction in records if len(transaction) == 6]
+#records=[transaction for transaction in records if len(transaction) == 7]
+records=[transaction for transaction in records if len(transaction) == 8]
 
 # Initialisieren des Transaction Encoders
 encoder = TransactionEncoder()
